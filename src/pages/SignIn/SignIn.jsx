@@ -44,6 +44,7 @@ const SignIn = () => {
                                 <button className="btn btn-neutral mt-4">Login</button>
                             </fieldset>
                         </form>
+                        <SignIn></SignIn>
                     </div>
                 </div>
             </div>
