@@ -4,13 +4,14 @@ import { useLocation, useNavigate } from 'react-router';
 import SocialLogin from '../Shared/SocialLogin';
 
 const SignIn = () => {
-    console.log('hello');
+    // console.log('hello');
 
     const { signInUser } = use(AuthContext);
-    // const location = useLocation();
-    // const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state || '/';
+    const navigate = useNavigate();
 
-    // console.log('location in sign in page', location);
+    console.log('location in sign in page', location);
 
 
     const handleLogin = e => {
@@ -25,6 +26,7 @@ const SignIn = () => {
         signInUser(email, password)
             .then(result => {
                 console.log(result);
+                navigate(from);
             })
             .catch(err => {
                 console.log(err.message);
@@ -53,7 +55,7 @@ const SignIn = () => {
                                 <button className="btn btn-neutral mt-4">Login</button>
                             </fieldset>
                         </form>
-                        <SocialLogin></SocialLogin>
+                        <SocialLogin from={from}></SocialLogin>
                     </div>
                 </div>
             </div>
