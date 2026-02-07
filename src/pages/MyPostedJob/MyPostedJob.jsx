@@ -11,7 +11,7 @@ const MyPostedJob = () => {
         <div>
             <h2>My Posted Job</h2>
             <Suspense fallback={'loading posted jobs...'}>
-                <JobLists jobsCreatedByPromise={jobsCreatedByPromise(user.email)}></JobLists>
+                <JobLists jobsCreatedByPromise={jobsCreatedByPromise(user.email, user.accessToken)}></JobLists>
             </Suspense>
         </div>
     );
