@@ -46,11 +46,12 @@ const AuthProvider = ({ children }) => {
                     withCredentials: true  // in case you want to send cookie with request, set this to true
                 })
                     .then(res => {
-                        console.log(res.data);
+                        // console.log(res.data);
                     })
                     .catch(err => {
                         console.log(err.message);
                     });
+                // if you want to store token in local storage
 
                 // axios.post('http://localhost:3000/jwt', userData)
                 //     .then(res => {
@@ -64,6 +65,8 @@ const AuthProvider = ({ children }) => {
                 //         console.log(err.message);
                 //     });
             }
+
+            console.log("user in the auth state change", currentUser);
         });
         return () => unSubscribe();
     }, []);
